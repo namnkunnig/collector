@@ -7,3 +7,36 @@
     @apply appearance-none;
   }
 }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 42rem;
+  height: 1rem;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: white;
+  height: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid grey;
+  
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -0.3rem; 
+  background-color: purple;
+  height: 2rem;
+  width: 2rem;    
+  border-radius: 100%;
+  border: white solid 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb:before{
+  color: black;
+  content: "foo"
+}
