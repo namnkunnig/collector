@@ -5,9 +5,8 @@ export default function RangedInput() {
       <div id="selector">
         <div id="button"></div>
       </div>
-      <div className="flex">
-        <div id="progress"></div>
-      </div>
+      <div id="progress">1000 kr</div>
+      <div id="background">200 000 kr</div>
     </div>
   )
 

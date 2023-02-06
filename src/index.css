@@ -46,7 +46,7 @@
 }
 
 #progress{
-  width: 50%;
+  width: 0%;
   height: 32px;
   background: purple;
   border-radius: 3px;
@@ -55,4 +55,26 @@
   left: 0;
   margin-top:-5px;
   margin-left: 20px;
+  border-radius: 16px 0 0 16px;
+  text-align: right;
+  color: white;
+  padding-right: 40px;
+  padding-top: 4px;
+  z-index: 1;
+}
+
+#background {
+  border: 1px solid black;
+  height: 32px;
+  border-radius: 16px;
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 96%;
+  margin-left: 20px;
+  margin-right: 148px;
+  text-align: right;
+  color: black;
+  padding-right: 30px;
+  padding-top: 3px;
 }
