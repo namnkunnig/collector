@@ -7,7 +7,7 @@ export default function RangedInput({ min, max, step, unit, defaultValue }: Rang
 
   return (
     <div className="w-full relative h-12">
-      <input type="range" min={min} max={max} step={step} id="slider" defaultValue={0} className="w-full" onInput={inputHandler} />
+      <input type="range" min={min} max={max} step={step} defaultValue={0} className="w-full slider" onInput={inputHandler} />
       <div ref={buttonRef} className="h-12 w-12 absolute top-[-9px] z-20 bg-collector rounded-full border-2 border-solid border-white"></div>
       <div ref={sliderRef} className="w-0 h-8 bg-collector absolute box-border rounded-l-full ml-5 text-right text-white pt-[0.8px] pr-8 z-10 rounded-none">
         <span className="align-middle">
