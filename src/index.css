@@ -15,7 +15,6 @@
   outline: none;
   border-radius: 3px;
   position: absolute;
-  top: -3px;
   background-color: rgba(173, 53, 53, 0.336);
   background-color: transparent;
   z-index: 40;
@@ -28,6 +27,7 @@
   cursor: pointer;
   z-index: 42;
   position: relative;
-  /* background-color: red;
-  border-radius: 50%; */
+  border-radius: 50%;
+  background-color: red;
+  background-color: transparent;
 }

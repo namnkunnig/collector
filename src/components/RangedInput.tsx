@@ -6,17 +6,12 @@ export default function RangedInput() {
   return (
     <div className="w-full relative">
       <input type="range" min="0" max="1000" step="100" id="slider" defaultValue={0} className="w-full" onInput={InputHandler} />
-      <div ref={buttonRef} className="h-[48px] w-[48px] absolute top-[-12px] z-[2]">
-        <div className="h-[48px] w-[48px]  bg-collector rounded-full border-2 border-solid border-white absolute"></div>
+      <div ref={buttonRef} className="h-12 w-12 absolute top-[-9px] z-20 bg-collector rounded-full border-2 border-solid border-white"></div>
+      <div ref={sliderRef} className="w-0 h-8 bg-collector absolute box-border rounded-l-full ml-5 text-right text-white pt-[0.8px] pr-10 z-10 rounded-none">
+        <span className="align-middle">1000 kr</span>
       </div>
-      <div
-        ref={sliderRef}
-        className="w-0 h-[32px] bg-collector absolute top-0 left-0 rounded-l-full mt-[-4px] ml-[20px] text-right text-white pr-[40px] pt-[4px] z-[1] rounded-none"
-      >
-        1000 kr
-      </div>
-      <div className="border-[1px] border-solid border-black height-[32px] rounded-full absolute top-[-4px] left-0 w-[96%] ml-[20px] mr-[148px] text-right text-black pr-[30px] pt-[3px]">
-        200 000 kr
+      <div className="border-[1px] border-solid border-slate-600 h-8 box-border rounded-full absolute w-[96%] ml-5 mr-[148px] text-right text-black pr-8">
+        <span className="align-middle">200 000 kr</span>
       </div>
     </div>
   )
