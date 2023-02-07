@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-export default function RangedInput({ min, max, step, unit, defaultValue }: RangedInput) {
+export default function RangedInput({ min, max, step, unit, defaultValue, callback }: RangedInput) {
   const buttonRef = useRef(null)
   const sliderRef = useRef(null)
   const [value, setValue] = useState(defaultValue)
@@ -28,6 +28,7 @@ export default function RangedInput({ min, max, step, unit, defaultValue }: Rang
   function inputHandler(e: React.MouseEvent<HTMLInputElement>) {
     const value = parseInt(e.currentTarget?.value)
     setValue(value)
+    callback(value)
     const currentButton = buttonRef.current
     const currentProgress = sliderRef.current
     if (!currentButton || !currentProgress) return
@@ -44,4 +45,5 @@ interface RangedInput {
   step: number
   unit: string
   defaultValue: number
+  callback: (value: number) => void
 }
