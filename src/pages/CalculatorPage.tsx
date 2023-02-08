@@ -7,6 +7,7 @@ export default function CalculatorPage() {
   const [amount, setAmount] = useState(100000)
   const [length, setLength] = useState(7)
   const [monthlyCost, setMonthlyCost] = useState(0)
+  const { minAmount, maxAmount, minLength, maxLength, stepAmount, stepLength, defaultAmount, defaultLength } = useConfig()
 
   useEffect(() => {
     const cost = calculateMonthlyCost()
@@ -21,9 +22,9 @@ export default function CalculatorPage() {
           <ToolTip text={`${monthlyCost} SEK / mån`}></ToolTip>
         </div>
         <h2 className="text-md font-semibold mb-2">Lånebelopp</h2>
-        <RangedInput defaultValue={100000} min={20000} max={200000} step={10000} unit="kr" callback={(amount: number) => setAmount(amount)}></RangedInput>
+        <RangedInput defaultValue={defaultAmount} min={minAmount} max={maxAmount} step={stepAmount} unit="kr" callback={(amount: number) => setAmount(amount)}></RangedInput>
         <h2 className="text-md font-semibold mb-2">Lånetid</h2>
-        <RangedInput defaultValue={7} min={2} max={10} step={1} unit="år" callback={(length: number) => setLength(length)}></RangedInput>
+        <RangedInput defaultValue={defaultLength} min={minLength} max={maxLength} step={stepLength} unit="år" callback={(length: number) => setLength(length)}></RangedInput>
         <div className="flex justify-end">
           <button className="rounded mt-4 bg-green px-3 py-2 text-white font-semibold" onClick={() => console.log(`/loan-application/?amount=${amount}&months=${length * 12}`)}>
             Till ansökan
