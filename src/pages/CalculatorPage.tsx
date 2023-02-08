@@ -24,6 +24,11 @@ export default function CalculatorPage() {
         <RangedInput defaultValue={100000} min={20000} max={200000} step={10000} unit="kr" callback={(amount: number) => setAmount(amount)}></RangedInput>
         <h2 className="text-lg font-semibold mb-2">Lånetid</h2>
         <RangedInput defaultValue={7} min={2} max={10} step={1} unit="år" callback={(length: number) => setLength(length)}></RangedInput>
+        <div className="flex justify-end">
+          <button className="rounded mt-4 bg-green p-3 text-white font-semibold" onClick={() => console.log(`/loan-application/?amount=${amount}&months=${length * 12}`)}>
+            Till ansökan
+          </button>
+        </div>
       </main>
     </div>
   )

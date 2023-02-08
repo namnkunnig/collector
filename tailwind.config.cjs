@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         collector: '#582f87',
+        green: '#1ec887',
       },
     },
   },
