@@ -17,7 +17,7 @@ export default function RangedInput({ min, max, step, unit, defaultValue, callba
       <div ref={buttonRef} className="h-12 w-12 absolute top-[-9px] z-20 bg-violet rounded-full border-2 border-solid border-white"></div>
       <div ref={sliderRef} className={`w-0 h-8 bg-violet absolute box-border rounded-l-full ml-5 text-right text-white pt-[0.8px] pr-8 z-10 rounded-none`}>
         <span className={`align-middle`}>
-          {value} {unit}
+          {value.toLocaleString('sv-SE')} {unit}
         </span>
       </div>
       <div className={`border-[1px] border-solid border-slate-600 h-8 box-border rounded-full absolute w-[96%] ml-5 mr-[148px] text-right text-black pr-8`}>
