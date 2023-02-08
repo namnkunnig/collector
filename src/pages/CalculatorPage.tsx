@@ -11,7 +11,6 @@ export default function CalculatorPage() {
   useEffect(() => {
     const cost = calculateMonthlyCost()
     setMonthlyCost(cost)
-    console.log(monthlyCost)
   }, [amount, length])
 
   return (
