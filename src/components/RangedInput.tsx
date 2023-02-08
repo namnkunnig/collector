@@ -12,7 +12,7 @@ export default function RangedInput({ min, max, step, unit, defaultValue, callba
   }, [])
 
   return (
-    <div className="w-full relative h-12">
+    <div className="w-full relative h-16">
       <input ref={inputRef} type="range" min={0} max={max} step={step} defaultValue={defaultValue} className="w-full slider" onInput={inputHandler} />
       <div ref={buttonRef} className="h-12 w-12 absolute top-[-9px] z-20 bg-violet rounded-full border-2 border-solid border-white"></div>
       <div ref={sliderRef} className={`w-0 h-8 bg-violet absolute box-border rounded-l-full text-right text-white pt-[0.8px] pr-6 z-10 rounded-none`}>
@@ -22,7 +22,7 @@ export default function RangedInput({ min, max, step, unit, defaultValue, callba
       </div>
       <div className={`border-[1px] border-solid border-slate-600 h-8 box-border w-full rounded-full absolute mr-[148px] text-right text-black pr-8`}>
         <span className={`align-middle`}>
-          {max} {unit}
+          {max.toLocaleString('sv-SE')} {unit}
         </span>
       </div>
     </div>
