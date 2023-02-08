@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import RangedInput from '../components/RangedInput'
 import ToolTip from '../components/ToolTip'
+import useConfig from '../hooks/useConfig'
 
 export default function CalculatorPage() {
   const [amount, setAmount] = useState(100000)
@@ -8,8 +9,9 @@ export default function CalculatorPage() {
   const [monthlyCost, setMonthlyCost] = useState(0)
 
   useEffect(() => {
-    const cost = Math.round(amount / length)
+    const cost = calculateMonthlyCost()
     setMonthlyCost(cost)
+    console.log(monthlyCost)
   }, [amount, length])
 
   return (
@@ -26,4 +28,13 @@ export default function CalculatorPage() {
       </main>
     </div>
   )
+
+  function calculateMonthlyCost() {
+    const { rate } = useConfig()
+    const monthlyInterestRate = rate / 1200
+    const numberOfMonths = length * 12
+
+    const monthlyCost = (amount * monthlyInterestRate * ((1 + monthlyInterestRate) ^ numberOfMonths)) / (((1 + monthlyInterestRate) ^ numberOfMonths) - 1)
+    return Math.round(monthlyCost)
+  }
 }

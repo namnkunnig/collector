@@ -7,13 +7,10 @@ export default function RangedInput({ min, max, step, unit, defaultValue, callba
 
   return (
     <div className="w-full relative h-12">
-      <input type="range" min={min} max={max} step={step} defaultValue={0} className="w-full slider" onInput={inputHandler} />
+      <input type="range" min={0} max={max} step={step} defaultValue={0} className="w-full slider" onInput={inputHandler} />
       <div ref={buttonRef} className="h-12 w-12 absolute top-[-9px] z-20 bg-collector rounded-full border-2 border-solid border-white"></div>
-      <div
-        ref={sliderRef}
-        className={`w-0 h-8 bg-collector absolute box-border rounded-l-full ml-5 text-right text-white pt-[0.8px] pr-8 z-10 rounded-none ${value === min ? 'hidden' : ''}`}
-      >
-        <span className={`align-middle ${value >= min * 1 ? '' : 'hidden'}`}>
+      <div ref={sliderRef} className={`w-0 h-8 bg-collector absolute box-border rounded-l-full ml-5 text-right text-white pt-[0.8px] pr-8 z-10 rounded-none`}>
+        <span className={`align-middle`}>
           {value} {unit}
         </span>
       </div>
@@ -27,6 +24,10 @@ export default function RangedInput({ min, max, step, unit, defaultValue, callba
 
   function inputHandler(e: React.MouseEvent<HTMLInputElement>) {
     const value = parseInt(e.currentTarget?.value)
+    if (value < min) {
+      e.preventDefault()
+      return
+    }
     setValue(value)
     callback(value)
     const currentButton = buttonRef.current
@@ -34,8 +35,8 @@ export default function RangedInput({ min, max, step, unit, defaultValue, callba
     if (!currentButton || !currentProgress) return
     const button = currentButton as HTMLDivElement
     const slider = currentProgress as HTMLDivElement
-    button.style.left = ((value - min) / ((max - min) / 100)) * 0.96 + '%'
-    slider.style.width = ((value - min) / ((max - min) / 100)) * 0.96 + '%'
+    button.style.left = (value / (max / 100)) * 0.96 + '%'
+    slider.style.width = (value / (max / 100)) * 0.96 + '%'
   }
 }
 
