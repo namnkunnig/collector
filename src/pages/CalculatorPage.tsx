@@ -15,7 +15,7 @@ export default function CalculatorPage() {
   }, [amount, length])
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex w-full justify-center mx-2">
       <main className="w-[1000px] py-10">
         <div className="flex justify-between">
           <h1 className="text-xl mb-8 font-bold">Lånekalkyl</h1>
