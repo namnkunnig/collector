@@ -15,8 +15,8 @@ export default function CalculatorPage() {
   }, [amount, length])
 
   return (
-    <div className="flex w-full justify-center mx-2">
-      <main className="w-[1000px] py-10">
+    <div className="flex mx-12 justify-center">
+      <main className="w-full py-10">
         <div className="flex justify-between">
           <h1 className="text-xl mb-8 font-bold">Lånekalkyl</h1>
           <ToolTip text={`${monthlyCost} SEK / mån`}></ToolTip>
