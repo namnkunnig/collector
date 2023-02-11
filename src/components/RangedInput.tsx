@@ -14,12 +14,14 @@ export default function RangedInput({ min, max, step, unit, defaultValue, callba
   return (
     <div ref={inputRef} className="w-full relative h-16">
       <input type="range" min={0} max={max} step={step} defaultValue={defaultValue} className="w-full slider appearance-none" onInput={inputHandler} />
-      <div ref={buttonRef} className="h-12 w-12 absolute top-[-9px] z-20 bg-violet rounded-full border-2 border-solid border-white"></div>
-      <div ref={sliderRef} className={`w-0 h-8 bg-violet absolute box-border rounded-l-full text-right text-white pt-[0.8px] pr-12 pl-2 z-10 rounded-none`}>
-        <span className={`align-middle`}>
-          {value.toLocaleString('sv-SE')} {unit}
-        </span>
+      <div ref={buttonRef} className="h-12 w-12 absolute top-[-8px] z-20 bg-violet rounded-full border-2 border-solid border-white">
+        <div className="flex flex-col justify-center h-full w-32 pr-4 text-right -ml-32">
+          <div className={`text-white whitespace-nowrap`}>
+            {value.toLocaleString('sv-SE')} {unit}
+          </div>
+        </div>
       </div>
+      <div ref={sliderRef} className={`w-0 h-8 bg-violet absolute box-border rounded-l-full text-right text-white pt-[0.8px] pr-12 pl-2 z-10 rounded-none`}></div>
       <div className={`border-[1px] border-solid border-slate-600 h-8 box-border w-full rounded-full absolute mr-[148px] text-right text-black pr-8`}>
         <span className={`align-middle`}>
           {max.toLocaleString('sv-SE')} {unit}
